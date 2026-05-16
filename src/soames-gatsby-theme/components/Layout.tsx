@@ -1,8 +1,8 @@
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby";
 import ThemeLayout from 'soames-gatsby-theme/src/components/Layout';
-import Header from 'soames-gatsby-theme/src/components/header';
-import Footer from 'soames-gatsby-theme/src/components/footer';
+import Header from 'soames-gatsby-theme/src/components/Header';
+import Footer from 'soames-gatsby-theme/src/components/Footer';
 
 import '../../styles/overrides.css'; // Your starter-specific styles
 
