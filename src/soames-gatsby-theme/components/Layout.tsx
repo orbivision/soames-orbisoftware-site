@@ -21,21 +21,20 @@ const Layout: React.FC<LayoutProps> = ({ children, isHomePage = false }) => {
           title
         }
       }
-      wpMediaItem(title: { eq: "favicon" }) {
-        title
-        guid
+      soamesSettings {
+        faviconUrl
       }
     }
   `);
 
   const siteTitle = data.wp?.generalSettings?.title || 'Site Title';
-  const favicon = data.wpMediaItem;
+  const faviconUrl = data.soamesSettings?.faviconUrl ?? null;
 
   return (
     <div className="global-wrapper" data-is-root-path={isHomePage}>
       <Helmet>
-        {favicon && (
-          <link rel="icon" href={favicon.guid} type="image/png" />
+        {faviconUrl && (
+          <link rel="icon" href={faviconUrl} type="image/png" />
         )}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
