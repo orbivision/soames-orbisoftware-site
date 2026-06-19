@@ -302,3 +302,160 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+
+/* ============================================================
+   ORBI-19: Classic red/orange color scheme.
+   The theme default is now forest green + chartreuse (v0.1.24). This block
+   restores soames-orbisoftware-site to its original colors by reverting each
+   surface the theme's green scheme changes, back to the theme's pre-green
+   values. Loads after theme.css, so these win. The header logo sizing + text
+   alignment are inherited from the theme (not reverted — we want those).
+   ============================================================ */
+
+/* --- Navbar: dark red background with white text --- */
+.navbar-dropdown,
+.navbar,
+.navbar-dropdown.bg-color.transparent.opened,
+.soames-menu .navbar,
+.soames-menu .navbar-dropdown.bg-color.transparent.opened {
+  background: #bc361b !important;
+}
+
+.navbar-dropdown .navbar-caption,
+.navbar-dropdown .navbar-caption:hover {
+  color: #ffffff !important;
+}
+
+.soames-menu .nav-link,
+.soames-menu .dropdown-item {
+  color: #ffffff !important;
+}
+
+.soames-menu .nav-link:hover {
+  color: #c1c1c1 !important;
+}
+
+/* Hamburger icon: red */
+.navbar-dropdown .hamburger-icon {
+  -webkit-box-shadow: 0 -6px 0 1px #bc361b, 0 0 0 1px #bc361b, 0 6px 0 1px #bc361b;
+  -moz-box-shadow: 0 -6px 0 1px #bc361b, 0 0 0 1px #bc361b, 0 6px 0 1px #bc361b;
+  box-shadow: 0 -6px 0 1px #bc361b, 0 0 0 1px #bc361b, 0 6px 0 1px #bc361b;
+}
+
+/* Mobile slide-out menu: red */
+.nav-dropdown-sm.collapsing,
+.nav-dropdown-sm.collapse.in {
+  background: #bc361b !important;
+}
+
+.nav-dropdown-sm .link:hover,
+.nav-dropdown-sm .link:focus,
+.nav-dropdown-sm .dropdown-item:hover,
+.nav-dropdown-sm .dropdown-item:focus {
+  color: #c0a375 !important;
+}
+
+/* Desktop dropdown menus: red */
+.soames-menu .dropdown .dropdown-menu {
+  background: #bc361b !important;
+}
+
+/* --- Primary color: orange --- */
+.bg-primary {
+  background-color: #dc7b25 !important;
+}
+
+a,
+a:hover {
+  color: #dc7b25;
+}
+
+.text-primary {
+  color: #dc7b25 !important;
+}
+
+a.text-primary:hover,
+a.text-primary:focus {
+  color: #0b566f !important;
+}
+
+blockquote {
+  border-color: #dc7b25;
+}
+
+.btn-primary,
+.btn-primary:active {
+  background-color: #dc7b25 !important;
+  border-color: #dc7b25 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary:disabled {
+  background-color: #bc361b !important;
+  border-color: #bc361b !important;
+}
+
+.btn-primary-outline,
+.btn-primary-outline:active {
+  border-color: #0b566f;
+  color: #0b566f;
+}
+
+.btn-primary-outline:hover,
+.btn-primary-outline:focus,
+.btn-primary-outline.focus,
+.btn-primary-outline.active,
+.btn-primary-outline.disabled,
+.btn-primary-outline:disabled {
+  color: #ffffff !important;
+  background-color: #dc7b25 !important;
+  border-color: #dc7b25 !important;
+}
+
+.soames-gallery-filter li.active .btn {
+  background-color: #dc7b25;
+  border-color: #dc7b25;
+}
+
+.soames-footer-content li::before,
+.soames-footer .soames-contacts li::before {
+  background: #dc7b25;
+}
+
+.soames-footer-content li a:hover,
+.soames-footer .soames-contacts li a:hover {
+  color: #dc7b25;
+}
+
+/* --- Title bar: orange background with white heading --- */
+.soames-title-bar {
+  background-color: #dc7b25 !important;
+}
+
+.soames-title-bar h2 {
+  color: #ffffff;
+}
+
+.soames-title-bar .soames-section-subtitle {
+  color: #767676 !important;
+}
+
+/* --- Video section: red gradient --- */
+.soames-video-container {
+  background: #bc361b;
+  background: linear-gradient(0deg, #bc361b, #700a06);
+}
+
+/* --- Footer: near-black --- */
+.soames-footer {
+  background-color: #2e2e2e !important;
+}
+
+.soames-footer a,
+.soames-footer a:hover {
+  color: #dc7b25;
+}
