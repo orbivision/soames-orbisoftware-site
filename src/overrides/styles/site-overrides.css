@@ -1,3 +1,21 @@
+/* ============================================================
+   orbisoftware.com — site-wide CSS overrides.
+
+   ORBI-62: this file is the `@theme/` shadow of the theme's own (empty)
+   src/styles/site-overrides.css. Base.astro imports it LAST — after Bootstrap,
+   the vendored WP block styles and theme.css — so rules here win the cascade at
+   equal specificity. It is the direct successor to the Gatsby-era
+   src/styles/overrides.css, which the shadowed Layout.tsx imported by hand. The
+   theme does that import now, so the file simply moved.
+
+   Three groups below:
+     1. .contentN heading spacing  — unchanged from Gatsby
+     2. ORBI-19 red/orange scheme  — unchanged from Gatsby
+     3. ORBI-62 additions          — new; see that section for why
+   ============================================================ */
+
+/* --- 1. Heading spacing inside the mobirise-era .contentN sections --- */
+
 .content8 h2 {
   padding: 0;
   margin: 0;
@@ -458,4 +476,44 @@ blockquote {
 .soames-footer a,
 .soames-footer a:hover {
   color: #dc7b25;
+}
+
+/* ============================================================
+   3. ORBI-62 additions — Astro-theme-only surfaces.
+
+   The ORBI-19 block above was written against the Gatsby theme. The Astro
+   theme's green scheme (styles/soames/overrides.css, ~2140-2324) carries two
+   extra ORBI-26 rules that the Gatsby-era revert never had to answer, and both
+   would otherwise beat it. Everything else in ORBI-19 still applies verbatim —
+   every selector it targets exists unchanged in the Astro theme CSS.
+   ============================================================ */
+
+/* (1) Submenu links: the theme sets
+
+         .soames-menu .dropdown .dropdown-menu .dropdown-item{,:focus,:hover}
+           { color: #c8e83c !important }
+
+     to get chartreuse-on-dark-green contrast. That is FOUR classes deep, so it
+     outranks the ORBI-19 rule's `.soames-menu .dropdown-item` (two classes) on
+     specificity — meaning file order can't save us and the links would render
+     chartreuse on our red dropdown. Match the theme's selector exactly so the
+     later-loading file wins on equal specificity. White matches the top-level
+     nav links; the hover tint matches .nav-dropdown-sm's above. */
+.soames-menu .dropdown .dropdown-menu .dropdown-item {
+  color: #ffffff !important;
+}
+
+.soames-menu .dropdown .dropdown-menu .dropdown-item:focus,
+.soames-menu .dropdown .dropdown-menu .dropdown-item:hover {
+  color: #c0a375 !important;
+}
+
+/* (2) Mobile hamburger bars: the theme darkens them to #232323 because the
+     green scheme made the navbar off-white (#f0efea). Our navbar is #bc361b,
+     so dark bars are near-invisible against it — put them back to white. Note
+     this targets `.hamburger span`, a DIFFERENT element from the
+     `.hamburger-icon` box-shadow rule in the ORBI-19 block above; the theme
+     styles both, so the revert has to cover both. */
+.soames-menu button.navbar-toggler .hamburger span {
+  background-color: #ffffff;
 }
